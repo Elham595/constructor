@@ -1,0 +1,108 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+class employee
+{
+  private:
+    int id;
+    char* name;
+    int salary;
+    int name_size;
+
+  public:
+    void setId(int ID)
+      {
+          id=ID;
+      }
+      int getId()
+      {
+          return id;
+      }
+      void setName(char* Name)
+      {
+          name=Name;
+      }
+      char* getName()
+      {
+          return name;
+      }
+      void setSalary(int Salary)
+      {
+          salary=Salary;
+      }
+      int getSalary()
+      {
+          return salary;
+      }
+      void setSize(int Name_size)
+      {
+          name_size=Name_size;
+      }
+      int getSize()
+      {
+          return name_size;
+      }
+      employee()
+      {
+          setSize(10);
+          name=new char[name_size];
+      }
+      employee(int i)
+      {
+          setId(i);
+          setSize(15);
+          name=new char[name_size];
+      }
+      employee(int i,char*n)
+      {
+          setId(i);
+          setSize(15);
+          name=new char[name_size];
+          setName(n);
+      }
+      employee(int i,char*n,int s)
+      {
+          setId(i);
+          setSalary(s);
+          setSize(15);
+          name=new char[name_size];
+          setName(n);
+      }
+      ~employee()
+      {
+          delete(name);
+      }
+
+};
+int main()
+{
+    employee emp;
+    emp.setId(1);
+    emp.setName("elham");
+    emp.setSalary(100);
+    cout<"Employee ";
+    cout<< emp.getId()<<endl;
+    cout<<"Name :"<<emp.getName()<<endl;
+    cout<<"Salary :"<<emp.getSalary()<<endl;
+    cout<<"--------------"<<endl;
+    //////////////////////constructor of 1 parameter
+    employee emp1(2);
+    ///emp1.setName("ahmed");
+    cout<"Employee ";
+    cout<<emp1.getId()<<endl;
+    //cout<<"Name :"<<emp1.getName()<<endl;
+    cout<<"--------------"<<endl;
+    //////////////////////constructor of 2 parameter
+    employee emp2(3,"ali");//2 par
+    cout<"Employee ";
+    cout<<emp2.getId()<<endl;
+    cout<<"Name :"<<emp2.getName()<<endl;
+    cout<<"--------------"<<endl;
+    //////////////////////constructor of 3 parameter
+    employee emp3(4,"noor",500);
+    cout<"Employee ";
+    cout<<emp3.getId()<<endl;;
+    cout<<"Name :"<<emp3.getName()<<endl;
+    cout<<"Salary :"<<emp3.getSalary()<<endl;;
+    return 0;
+}
